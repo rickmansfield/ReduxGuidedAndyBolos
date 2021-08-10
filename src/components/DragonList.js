@@ -40,6 +40,7 @@ class DragonList extends React.Component {
 }
 
 const mapStateToProps = state => {
+  console.log("DragonList mapStateToProps",state);
   return {
     members: state.dragonReducer.members
   }
