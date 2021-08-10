@@ -1,9 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { toggleEditing } from '../actions/titleActions';
+import { toggleEditing, updateTitle } from '../actions/titleActions';
+
 const TitleDisplay = (props)=> {
+
+  console.log('Title Display',props);
+  
   const handleClick = () =>{
-    props.dispatch(toggleEditing);
+    props.dispatch(toggleEditing());
   };
     return(<h2>
         {props.title}{' '}
@@ -20,5 +24,8 @@ const mapStateToProps = (state)=> {
     title: state.title
   });
 }
+const mapActionsToProps = {
+  toggleEditing: updateTitle
+}
 // export default TitleDisplay;
-export default connect (mapStateToProps)(TitleDisplay);
+export default connect (mapStateToProps, mapActionsToProps)(TitleDisplay);
